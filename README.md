@@ -35,7 +35,7 @@ A nyomtatott itallap oldalai (`src/assets/itallap`) a Kínálatunk oldalon lapoz
 
 A régi Joomla-címek (`/index.php/hu/...`) 308-as átirányítással mutatnak az új oldalakra (`next.config.ts`).
 
-Akadálymentesség: a `prefers-reduced-motion` beállítást tiszteletben tartja (nincs smooth scroll, intro és parallax), a tartalom JavaScript nélkül is olvasható, a Google-térkép pedig csak kattintásra töltődik be.
+Akadálymentesség: a `prefers-reduced-motion` beállítást tiszteletben tartja (nincs smooth scroll, intro és parallax), a tartalom JavaScript nélkül is olvasható, a Google-térkép pedig csak akkor töltődik be, amikor odagörgetsz (`loading="lazy"`).
 
 ## Élesítés (Vercel)
 
