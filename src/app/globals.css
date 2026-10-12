@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #120e0b;
+  --color-espresso: #1c1511;
+  --color-roast: #2a201a;
+  --color-paper: #eee5d3;
+  --color-paper-2: #e3d7bf;
+  --color-wine: #741c29;
+  --color-wine-deep: #5a1520;
+  --color-brass: #b8894a;
+  --color-smoke: #8b8072;
+  --color-leaf: #6f8a4e;
+
+  --font-display: var(--font-bodoni), "Bodoni 72", "Didot", Georgia, serif;
+  --font-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  --gutter: clamp(1rem, 3.2vw, 3rem);
+  --header-h: 4.5rem;
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  background: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-wine);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ———————————————————————————— Tipográfia */
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-stretch: 85%;
+  font-variation-settings: "wdth" 85;
+}
+
+.cond {
+  font-stretch: 72%;
+  font-variation-settings: "wdth" 72;
+}
+
+.display-xxl {
+  font-size: clamp(4.2rem, 15.5vw, 17rem);
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+}
+.display-xl {
+  font-size: clamp(3.2rem, 9.4vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+.display-lg {
+  font-size: clamp(2.6rem, 6vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.display-md {
+  font-size: clamp(2rem, 3.8vw, 3.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.prose-cafe p + p {
+  margin-top: 1.1em;
+}
+
+/* Iniciálé */
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 5.2em;
+  line-height: 0.78;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--color-wine);
+}
+
+/* Aláhúzás-animáció linkekre */
+.u-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-size 0.6s var(--ease-out-expo);
+}
+.u-link:hover,
+.u-link:focus-visible,
+[aria-current="page"] .u-link,
+a:hover .u-link {
+  background-size: 100% 1px;
+  background-position: 0% 100%;
+}
+
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.22;
+}
+
+/* Boltíves maszk – a téglafal fülkéi alapján */
+.arch {
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+}
+
+/* ———————————————————————————— Szemcse */
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  width: 200%;
+  height: 200%;
+  opacity: 0.075;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -4%);
+  }
+  60% {
+    transform: translate(-4%, -1%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ———————————————————————————— Futószalag */
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-width: 100%;
+  animation: marquee var(--marquee-speed, 38s) linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* ———————————————————————————— Mozgás előkészítése
+   A .js-anim osztályt egy inline script teszi fel. Ha a JS valamiért nem fut le
+   (vagy 3,5 mp-en belül nem indul el), a tartalom alapból látható marad. */
+
+.js-anim [data-anim="fade"],
+.js-anim [data-anim="lines"],
+.js-anim [data-anim="img"],
+.js-anim [data-anim="stagger"] > * {
+  visibility: hidden;
+}
+
+.intro-skip .intro {
+  display: none;
+}
+
+.js-anim .hero-line-inner {
+  transform: translateY(118%);
+}
+.js-anim .hero-meta {
+  opacity: 0;
+}
+.js-anim .hero-media-inner {
+  clip-path: inset(100% 0 0 0);
+}
+@media (min-width: 768px) {
+  .hero-img-wrap {
+    transform: translateX(25%);
+  }
+}
+
+@keyframes lb-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes lb-img {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes scrollcue {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
+
+/* Kézi sormaszk (hero) – ugyanazzal a ráhagyással */
+.line-mask {
+  display: block;
+  overflow: clip;
+  padding-block: 0.14em;
+  margin-block: -0.14em;
+}
+
+/* A SplitText sormaszkja ne vágja le az ékezeteket és a lelógó betűszárakat */
+.split-line-mask {
+  padding-block: 0.14em;
+  margin-block: -0.14em;
+}
+
+/* ———————————————————————————— View Transitions (oldalváltás) */
+
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+::view-transition-old(.page) {
+  animation: 420ms var(--ease-in-out-quart) both page-out;
+}
+::view-transition-new(.page) {
+  animation: 900ms var(--ease-out-expo) 120ms both page-in;
+}
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-3vh) scale(0.985);
+    filter: blur(4px);
+  }
+}
+@keyframes page-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(8vh);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain {
+    animation: none;
+  }
+}
