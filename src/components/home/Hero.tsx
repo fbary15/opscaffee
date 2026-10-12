@@ -55,7 +55,7 @@ export function Hero() {
             .fromTo(".hero-img", { scale: 1.5 }, { scale: 1.12, duration: 2.4, ease: "expo.out" }, 0.2)
             .fromTo(
               ".hero-line-inner",
-              { y: 0, yPercent: 118 },
+              { y: 0, yPercent: 150 },
               { y: 0, yPercent: 0, duration: 1.5, stagger: 0.12, ease: "expo.out" },
               0.45,
             )
@@ -80,7 +80,7 @@ export function Hero() {
             .to(".hero-shade", { opacity: 0.62, duration: 0.8 }, 0.2)
             .fromTo(
               ".hero-welcome-line",
-              { y: 0, yPercent: 115 },
+              { y: 0, yPercent: 150 },
               { y: 0, yPercent: 0, stagger: 0.08, duration: 0.35 },
               0.62,
             )
@@ -146,10 +146,10 @@ export function Hero() {
           <p className="hero-welcome-label label mb-6 text-brass opacity-0">Alapítva {site.founded}</p>
           <p className="font-display display-lg">
             <span className="line-mask">
-              <span className="hero-welcome-line block translate-y-[115%]">Szeretettel köszöntünk</span>
+              <span className="hero-welcome-line block translate-y-[150%]">Szeretettel köszöntünk</span>
             </span>
             <span className="line-mask">
-              <span className="hero-welcome-line block translate-y-[115%] italic">az Ops Caffé by Deckben!</span>
+              <span className="hero-welcome-line block translate-y-[150%] italic">az Ops Caffé by Deckben!</span>
             </span>
           </p>
         </div>

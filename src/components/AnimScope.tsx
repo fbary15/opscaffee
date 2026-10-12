@@ -51,7 +51,7 @@ export function AnimScope({ children }: { children: React.ReactNode }) {
               onSplit(self) {
                 gsap.set(el, { autoAlpha: 1 });
                 return gsap.from(self.lines, {
-                  yPercent: 112,
+                  yPercent: 135,
                   rotate: 1.5,
                   transformOrigin: "0% 0%",
                   duration: 1.25,

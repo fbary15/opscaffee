@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Bodoni_Moda } from "next/font/google";
+import { Archivo, Newsreader } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Intro } from "@/components/Intro";
@@ -7,8 +7,8 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
+const serif = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin", "latin-ext"],
   style: ["normal", "italic"],
   axes: ["opsz"],
@@ -80,7 +80,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="hu" className={`${bodoni.variable} ${archivo.variable}`} suppressHydrationWarning>
+    <html lang="hu" className={`${serif.variable} ${archivo.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>

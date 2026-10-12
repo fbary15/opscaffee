@@ -12,7 +12,7 @@
   --color-smoke: #8b8072;
   --color-leaf: #6f8a4e;
 
-  --font-display: var(--font-bodoni), "Bodoni 72", "Didot", Georgia, serif;
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -75,8 +75,8 @@ img {
 .font-display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-weight: 450;
+  letter-spacing: -0.015em;
 }
 
 .label {
@@ -97,23 +97,23 @@ img {
 
 .display-xxl {
   font-size: clamp(4.2rem, 15.5vw, 17rem);
-  line-height: 0.84;
-  letter-spacing: -0.045em;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
 }
 .display-xl {
   font-size: clamp(3.2rem, 9.4vw, 10rem);
-  line-height: 0.9;
-  letter-spacing: -0.035em;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
 }
 .display-lg {
   font-size: clamp(2.6rem, 6vw, 6.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
 }
 .display-md {
   font-size: clamp(2rem, 3.8vw, 3.9rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
 }
 
 .prose-cafe p + p {
@@ -228,7 +228,7 @@ a:hover .u-link {
 }
 
 .js-anim .hero-line-inner {
-  transform: translateY(118%);
+  transform: translateY(150%);
 }
 .js-anim .hero-meta {
   opacity: 0;
